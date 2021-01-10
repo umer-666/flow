@@ -1,0 +1,88 @@
+{
+  materials: [
+    {
+      name: 'surfaceShader1SG',
+      parameters: [
+        {
+          baseColorFactor: [
+            1,
+            1,
+            1,
+            1,
+          ],
+        },
+        {
+          baseColor: 'CubeRoom_BakedDiffuse_4096',
+        },
+        {
+          diffuseColorFactor: null,
+        },
+        {
+          diffuseColor: null,
+        },
+        {
+          normal: null,
+        },
+        {
+          metallicFactor: 0,
+        },
+        {
+          roughnessFactor: 0.96994800000000003,
+        },
+        {
+          specularFactor: null,
+        },
+        {
+          glossinessFactor: null,
+        },
+        {
+          specularGlossiness: null,
+        },
+        {
+          specularGlossinessCalculation: null,
+        },
+        {
+          metallicRoughness: null,
+        },
+        {
+          occlusion: null,
+        },
+        {
+          emissiveFactor: [
+            0,
+            0,
+            0,
+            1,
+          ],
+        },
+        {
+          emissive: null,
+        },
+        {
+          opacity: null,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/gltf_material.sfm',
+    },
+  ],
+  model: {
+    attributes: [
+      'Position',
+      'TexCoord',
+      'Orientation',
+    ],
+    collision: {},
+    file: 'sampledata/CubeRoom.gltf',
+    name: 'CubeRoom',
+    recenter: 'root',
+    scale: 0.14285700000000001,
+  },
+  samplers: [
+    {
+      file: 'sampledata\\CubeRoom_BakedDiffuse_4096.png',
+      name: 'CubeRoom_BakedDiffuse_4096',
+      pipeline_name: 'CubeRoom_BakedDiffuse_4096.png',
+    },
+  ],
+  version: '0.54:2',
+}

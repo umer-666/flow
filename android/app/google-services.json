@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1088539763319",
+    "firebase_url": "https://flow-8dfe4.firebaseio.com",
+    "project_id": "flow-8dfe4",
+    "storage_bucket": "flow-8dfe4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1088539763319:android:798f470019656f36161c72",
+        "android_client_info": {
+          "package_name": "com.example.getNav"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1088539763319-k13ktehe2npbjhr33bt206a7ivh28uaa.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC7QNFcOJ61qZDL9JbwlDgac_ZDCDn2RIA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1088539763319-k13ktehe2npbjhr33bt206a7ivh28uaa.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

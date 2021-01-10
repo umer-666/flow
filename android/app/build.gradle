@@ -1,0 +1,127 @@
+def localProperties = new Properties()
+def localPropertiesFile = rootProject.file('local.properties')
+if (localPropertiesFile.exists()) {
+    localPropertiesFile.withReader('UTF-8') { reader ->
+        localProperties.load(reader)
+    }
+}
+
+def flutterRoot = localProperties.getProperty('flutter.sdk')
+if (flutterRoot == null) {
+    throw new GradleException("Flutter SDK not found. Define location with flutter.sdk in the local.properties file.")
+}
+
+def flutterVersionCode = localProperties.getProperty('flutter.versionCode')
+if (flutterVersionCode == null) {
+    flutterVersionCode = '1'
+}
+
+def flutterVersionName = localProperties.getProperty('flutter.versionName')
+if (flutterVersionName == null) {
+    flutterVersionName = '1.0'
+}
+
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
+// AR CORE DEPENDENCY
+apply plugin: 'com.google.ar.sceneform.plugin'
+// FIREBASE ML VISION DEPENDENCY
+apply plugin: 'com.google.gms.google-services'
+
+android {
+    // AR CORE DEPENDENCY
+    // compileSdkVersion 28
+    compileSdkVersion 29
+
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+    }
+
+    lintOptions {
+        disable 'InvalidPackage'
+    }
+
+    defaultConfig {
+        // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
+        applicationId "com.example.getNav"
+        // AR CORE DEPENDENCY
+        // minSdkVersion 16
+        minSdkVersion 24
+        // AR CORE DEPENDENCY
+        // compileSdkVersion 28
+        targetSdkVersion 29
+        versionCode flutterVersionCode.toInteger()
+        versionName flutterVersionName
+        multiDexEnabled true
+
+    }
+
+    buildTypes {
+        release {
+            // TODO: Add your own signing config for the release build.
+            // Signing with the debug keys for now, so `flutter run --release` works.
+            signingConfig signingConfigs.debug
+        }
+    }
+        // AR CORE DEPENDENCY
+        compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+flutter {
+    source '../..'
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'androidx.multidex:multidex:2.0.1'
+
+
+    // implementation 'com.google.firebase:firebase-ml-vision:24.0.1'
+    // implementation 'com.google.firebase:firebase-ml-vision-image-label-model:19.0.0'
+    // api 'com.google.firebase:firebase-ml-vision-image-label-model:17.0.2'
+
+    // FIREBASE ML VISION DEPENDENCY
+    implementation 'com.google.android.gms:play-services-vision-common:19.1.2'
+    implementation 'com.google.android.gms:play-services-vision:20.1.2'
+    implementation 'com.google.android.gms:play-services-vision-image-labeling-internal:16.0.5'
+    api 'com.google.firebase:firebase-ml-vision:24.1.0'
+    api 'com.google.firebase:firebase-ml-vision-image-label-model:20.0.2'
+
+    // AR CORE DEPENDENCY
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+}
+
+// AR CORE DEPENDENCY
+///.SFA must have the same name as .OBJ/.GLTF file
+sceneform.asset('sampledata/Andy.obj',
+        'default',
+        'sampledata/Andy.sfa',
+        'src/main/assets/andy')
+
+sceneform.asset('sampledata/TocoToucan.obj',
+        'default',
+        'sampledata/TocoToucan.sfa',
+        'src/main/assets/toucan')
+
+sceneform.asset('sampledata/ArcticFox_Posed.obj',
+        'default',
+        'sampledata/ArcticFox_Posed.sfa',
+        'src/main/assets/artic_fox')
+
+sceneform.asset('sampledata/PaperPlane.obj',
+        'default',
+        'sampledata/PaperPlane.sfa',
+        'src/main/assets/paper_plane')
+        
+sceneform.asset('sampledata/CubeRoom.obj',
+        'default',
+        'sampledata/CubeRoom.sfa',
+        'src/main/assets/cube_room')
+
+
